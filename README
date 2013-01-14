@@ -1,0 +1,404 @@
+EffecTV 0.3.11
+
+GENERAL INFORMATION
+===================
+EffecTV is a real-time video effect processor. You can enjoy movies,
+TV programs and any other video stream through the many amazing effects. 
+
+INSTALL
+=======
+
+Requirements
+------------
+Currently, EffecTV highly depends upon the Intel architecture. It may not work
+on any other platform.
+EffecTV also works on PlayStation2. Please read "README.ps2".
+
+Video capture card or USB device supported by video4linux is required.
+
+EffecTV requires the SDL library, available from http://www.libsdl.org/.
+
+EffecTV uses video4linux. Your kernel should be configured with 
+CONFIG_VIDEO_DEV and enable drivers for your video capture card.
+
+Bttv driver included in linux-2.2.18 is broken. Get latest bttv driver
+from http://www.bytesex.org/bttv/.
+
+Vloopback device driver is required for the video loopback feature.
+You should use vloopback-0.91 or later.
+http://www.lavrsen.dk/twiki/bin/view/Motion/VideoFourLinuxLoopbackDevice
+
+*NOTICE* If you uses libc-2.2.5, try latest patch kit or package for your
+distro. Vloopback support does not work on early version of libc-2.2.5. If you
+are Debian GNU/Linux user and installed "woody", install libc6_2.2.5-4 or
+later.
+
+NASM can be used to assemble some modules. See following URL:
+http://nasm.sourceforge.net/
+If you want not to use NASM, you have to modify "config.mk".
+
+Compiling & installing
+----------------------
+Modify "config.mk" and "Makefile" (if necessary) and do
+
+make
+
+and
+
+make install
+
+Executable binary file "effectv" will be installed to /usr/local/bin/,
+and man page "effectv.1" will be installed to /usr/local/man/man1/ by default.
+
+The input device file (typically "/dev/video0") must be readable and writable
+for you.
+
+USING
+=====
+
+Before using
+------------
+Before starting up EffecTV, you should know about your hardwares settings.
+* Video norm(NTSC, PAL, etc.) of your video camera or player
+* Channel number of the Video source (this is different from channel numbers
+  of TV stations)
+* Video4linux device file name
+You can adjust these settings with command line options. See the next section.
+
+Synopsis
+--------
+effectv [options...] [effect name]
+
+Options
+-------
+-device FILE
+	Use device FILE for video4linux (default is /dev/video0).
+
+-channel NUMBER
+	Set channel number of video source (default is 0).
+	If your video capturing device has multiple video source(TV,Video1,...),
+	you may want to change this number to get correct images.
+
+-norm {ntsc,pal,secam,pal-nc,pal-m,pal-n,ntsc-jp}
+	Set video norm(signal format) of your video source (default is ntsc).
+
+-freqtab {us-bcast,us-cable,us-cable-hrc,japan-bcast,japan-cable,europe-west,
+          europe-east,italy,newzealand,australia,ireland,france,china-bcast,
+          southafrica,argentina,canada-cable,australia-optus}
+	Set frequency table of TV tuner. Choose one of them if you want to watch
+	TV on EffecTV.
+
+-fullscreen
+	Launch EffecTV in fullscreen mode.
+
+-hardware
+	Use direct video memory (if possible). It makes EffecTV faster in some
+	cases.
+
+-doublebuffer
+	Enable double buffering mode (if possible). It makes EffecTV faster in
+	some cases.
+
+-fps
+	Show frames/sec on its title bar (X11 only).
+
+-size WxH
+	Set the size of capturing image. EffecTV can be slower when the size is
+	larger. If you just want to get big (and not so fine) screen, please set
+	"-scale".
+
+-geometry WxH
+	Set the size of screen. Usually "-scale" is a better way to change the
+	size of screen. This option is for special purpose to stretch the
+	screen.
+
+-scale NUMBER
+	Scaling the screen. "-scale 2" results 2x2 screen.
+
+-autoplay NUMBER
+	Changes effects automatically every NUMBER frames.
+
+-palette {rgb24,rgb565,rgb555,yuv422,yuv422p,yuv420p,yuv411p,yuv410p,grey}
+	Set the palette of capturing device. By default, it is detected
+	automatically, so you need not to set this value. Some USB devices are
+	very slow when it is used in RGB mode. Try YUV series if you feel your
+	USB device is too slow.
+
+-vloopback FILE
+	Use device FILE for output of vloopback device.
+	See "Recording/broadcasting EffecTV" section.
+
+effect name
+	EffecTV can be launched from any effect you want. Put an effect name
+	after the command name ("effectv") or option(s). It's case-insensitive,
+	and a trailing "TV" can be omitted.
+
+Key
+---
+Up/Down     change effect.
+Right/Left  change TV channel.
+Space       capture a background image(for FireTV, BurningTV, etc.).
+            change mode(for SpiralTV, TransFormTV)
+ALT+Enter   fullscreen mode(toggle).
+TAB         Horizontal flipping(toggle).
+Escape      Quit
+ALT+0-9     change video input channel.
+F1/F2       increase/decrease brightness of video input.
+F3/F4       increase/decrease hue.
+F5/F6       increase/decrease color balance.
+F7/F8       increase/decrease contrast.
+F12         show this key usage.
+
+Individual effects are described in further detail in the documents package.
+You should download effectv-docs.tar.gz found at EffecTV web page.
+
+Summary of effects
+------------------
+QuarkTV
+    Dissolves moving objects.
+
+FireTV
+    Clips incoming objects and burns it.
+
+BurningTV
+    Burns incoming objects.
+
+RadioacTV
+    Brightens moving objects and blurs it.
+
+StreakTV
+    Makes 8 afterimages.
+
+BaltanTV
+    Makes afterimages longer.
+
+1DTV
+    Grabs a horizontal line from video every 1/30 sec.
+
+DotTV
+    Converts the picture into a set of dots.
+
+MosaicTV
+    Censors incoming objects.
+
+PuzzleTV
+    Scrambles the picture.
+
+PredatorTV
+    Makes incoming objects invisible visibly.
+
+SpiralTV
+    Spiraling motion-distortion effect.
+
+SimuraTV
+    Color distortion and image mirroring.
+
+EdgeTV
+    Detects edge and display it like good old computer way.
+
+ShagadelicTV
+    Go back to swinging '60s!
+
+NoiseTV
+    Makes incoming objects noisy.
+
+AgingTV
+    Film-aging effect.
+
+LifeTV
+    Conway's life game with video input interaction.
+
+TransFormTV
+    Performs positional translations on images.
+
+SparkTV
+    Spark effect.
+
+warpTV
+    Goo'ing effect.
+
+HolographicTV
+    Holographic vision seen in Star Wars.
+
+cycleTV
+    Color cycling effect.
+
+RippleTV
+    Ripple mark effect.
+
+DiceTV
+    A "dicing" effect.
+
+VertigoTV
+    Alpha blending with zoomed and rotated images.
+
+DeinterlaceTV
+    Deinterlacing video images.
+
+NervousTV
+    Realtime frame shuffling effect.
+
+RndmTV
+    Gives you a noisy picture in color or B/W.
+
+RevTV
+    Waveform monitor effect.
+
+RandomDotStereoTV
+    Makes random dot stereo stream from video input.
+
+LensTV
+    Old school demo lens effect.
+
+DiffTV
+    Hilights interframe differences.
+
+BrokenTV
+    Simulates broken TV.
+
+WarholTV
+    Hommage to Andy Warhol.
+
+MatrixTV
+    A Matrix like effect.
+
+PUPTV
+    Comes from "Partial UPdate", certain part of image is updated at a frame.
+
+ChameleonTV
+    Still object will be disappearing.
+
+OpTV
+    Optical art meets real-time video effect.
+
+NervousHalf
+    A half of the screen delays or be nervous.
+
+SloFastTV
+    Non-linear time TV.
+
+DisplayWall
+	Full of small displays with a distorted perspective view.
+
+BlueScreenTV
+	Blue sceen effect: changes scene background.
+
+ColourfulStreak
+	Streak effect with color.
+
+TimeDistortion
+	Scratch the surface and playback old images.
+
+EdgeBlurTV
+	Extract edge, and make blur.
+
+
+Vloopback support - chaining/recording/broadcasting EffecTV
+-----------------------------------------------------------
+EffecTV has supported the use of a video loopback device since version 0.2.0.
+First, install the vloopback module. See "REAME.vloopback" for the details.
+
+Then, load the vloopback device driver module and verify the input/output
+device files for the video pipe (typically /dev/video1 and /dev/video2).
+Then, run EffecTV.
+
+$ effectv -vloopback /dev/video1
+
+The effected images can be read from /dev/video2. If you want to "chain"
+a second instance of EffecTV, type as following.
+
+$ effectv -device /dev/video2
+
+For XawTv,
+
+$ xawtv -c /dev/video2
+
+To record the output to an MPEG file by using FFmpeg,
+
+$ ffmpeg -vd /dev/video2 -s 320x240 effect.mpg
+
+You can use many recording or broadcasting tools that supports v4l device.
+Because vloopback does not support framebuffer I/O control, some tools don't
+work. (e.g. streamer)
+
+Maximum size of the output images is same as size of the screen. When required
+size is smaller than the screen size, the output images are resized. Supported
+palettes (pixel format) of output images are RGB32, RGB24, RGB565, RGB555,
+YUV422, YUV422P and YUV420P.
+
+CONTACT
+=======
+
+Web
+---
+See http://effectv.sourceforge.net/index.html
+
+Bug-reporting & Suggestions
+---------------------------
+Bug reports and suggestions are welcome! Send an e-mail to:
+
+effectv-developers@lists.sourceforge.net
+
+or, post a message to EffecTV open discussion forums at EffecTV project page
+at SourceForge (see below for the URL).
+
+SourceForge
+===========
+EffecTV project page has been opened at SourceForge(http://sourceforge.net/).
+
+http://sourceforge.net/projects/effectv/
+
+Mailing list
+------------
+If you want to subscribe to the EffecTV crews mailing list, info can be found
+at http://lists.sourceforge.net/lists/listrinfo/effectv-developers.
+
+Discussion forum
+----------------
+There are four open discussion forums: "Help", "Effects coders forum",
+"Open discussion" and "Japanese".
+
+Help
+	Questions and problems should be posted here.
+Effects coders forum
+	Discussion space for effects coders.
+Open Discussion
+	Free discussion space.
+Japanese
+	For discussion in Japanese language.
+
+BackStage Branch
+----------------
+BackStage Branch is an experimental development branch of EffecTV. New effects
+and new features will be added to the branch at first.
+
+CVS
+---
+CVS repository of EffecTV can be checked out from the project page. Both the
+main trunk and the BackStage Branch are stored at there. Quick CVS usage
+instructions can be found at there.
+
+If you want access as a developer, you should be the member of the EffecTV
+developers group.  Please ask me to join the developers group.
+
+LICENSING INFORMATION
+=====================
+EffecTV is free software. We release this product under the terms of the
+GNU General Public License version 2. The license is included in the file
+COPYING.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+If you want to reuse EffecTV source code for your product without open your
+source code, please contact us.
+
+AUTHORS
+=======
+See the file "CREWS".
+
+---
+EffecTV crews
+E-mail: effectv-developers@lists.sourceforge.net
+Web: http://effectv.sourceforge.net/index.html

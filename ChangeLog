@@ -1,0 +1,806 @@
+2006/02/14	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effectv.1, docs.japanese/{README,effectv.1} :
+	  - Bumped version to 0.3.11.
+	* video.[ch]:
+	  - Moved "v4ldevice vd" into its private.
+	* iidc1394.patch:
+	  - updated.
+	* EffecTV-0.3.11 has been released.
+
+2005/08/03	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/edgeblur.c:
+	  - "EdgeBlurTV" has been added.
+	* image.c:
+	  - image_edge() has been added.
+
+2005/08/01	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/colstreak.c:
+	  - Optimization. (but it is still heavy on 500MHz...)
+	* effects/timedist.c:
+	  - Smoothing the time depth field (warptime[]) has been added.
+
+2005/07/30	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/{colstreak.c, timedist.c}:
+	  - New effects "ColorfulStreak" and "TimeDistortion".
+
+2005/07/12	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* palette.c:
+	  - Code cleaning.
+	* effects/displaywall.c:
+	  - Code cleaning.
+	* v4lutils/v4utils.c:
+	  - Fixed a comment bug.
+	* effectv.1, README:
+	  - Added descriptions of BlueScreenTV and DisplayWall.
+	* video.{c,h}:
+	  - Code cleaning, includes variables renaming.
+	  - Now video_init does not call 'atexit(video_quit)'. main.c calles
+	    it instead.
+	  - video_quit() frees framebuffer.
+	  - New functions video_change_channel() and video_retry().
+	* main.c:
+	  - Code cleaning.
+	  - Retrying video grabbing after a system error was added.
+	  - Changing video input channel is now enabled.
+	* FAQ:
+	  - URL to vloopback module is updated.
+	* ChangeLog:
+	  - Typo fix. (log of 2005/02/13)
+
+2005/05/18	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/{shagadelic,op}.c:
+	  - Now their visuals are kept consistent against screen size.
+	* effects/{bluescreen,displaywall}.c:
+	  - New effects BlueScreenTV and DisplayWall.
+	* effects/*.c:
+	  - Various code cleaning.
+
+2005/02/14	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* iidc1394.patch: An experimental IIDC1394 support patch has been added.
+	* EffecTV-0.3.10 has been released.
+
+2005/02/13	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* Changed version to 0.3.10.
+
+2005/01/28	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* main.c:
+	  - Added names of options to all error messages of themselves.
+
+2004/11/27	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/half.c:
+	  - New effect NervousHalf has been added.
+	* effects/op.c:
+	  - Ins/Del key hadnling has been fixed.
+	* README.vloopback:
+	  - Changed the URL of the latest vloopback source.
+
+2004/07/29	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/op.c:
+	  - Anti aliased.
+	  - Changed various parapmeters of b/w patterns.
+	* README.vloopback:
+	  - Added a URL of an article includes a patch for vloopback-0.91.
+
+2004/07/26	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/op.c:
+	  - New effect OpTV has been added.
+	* effects/aging.c:
+	  - Light flickering effect has been added.
+
+2004/01/20	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/spark.c:
+	  - Now mode is not reset in start().
+	* effects/matrix.c:
+	  - Now pressing Space bar can stop dropping code.
+
+2004/01/14	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effectv.1, docs.japanese/effectv.1:
+	  - Oh I have forgotten to update man pages X(
+
+2004/01/13	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* NEWS:
+	  - Added release date.
+	* Coding-HOWTO: is now obsolete ;-(
+	* EffecTV-0.3.9 has been released.
+
+2004/01/12	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/pup.c:
+	  - Renamed "diagonalPup2" to "dissolutionPup".
+	* README, docs.japanese/README:
+	  - Typo fixes.
+
+2004/01/03	Sam Mertens		<smertens@users.sourceforge.net>
+	* CREWS:
+	  - Added DiffTV to my list of effects :)
+
+2004/01/01	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/matrix.c:
+	  - Modified color palette.
+
+2003/12/31	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* TODO:
+	  - Added notes on overlay-patch and solaris-patch.
+	* README.ps2, docs.japanese/README.ps2:
+	  - Updated patch. Changed the based version to 1.65.
+	  - Fixed URLs for SDL and ov511.
+
+2003/12/30	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/chameleon.c:
+	  - Added "Appearing Mode".
+	* effects/pup.c:
+	  - Added HorizontalPup.
+	  - Key assign was changed.
+
+2003/12/27	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/pup.c:
+	  - Changed default effect.
+	* effects/fire.c:
+	  - Changed key asign.
+
+2003/12/26	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/noise.c:
+	  - The noise pattern has been changed.
+	* effects/matrix.c:
+	  - Default mode has been changed to no-blending mode.
+	* effects/blurzoom.c:
+	  - Additional color palettes have been added.
+	  - Removed an unused variable.
+	* effects/chameleon.c:
+	  - New effect ChameleonTV has been added.
+
+2003/12/24	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/{matrix.c,pup.c,effect.h,Makefile}, main.c:
+	  - Finally I have added MatrixTV and brand new PupTV.
+	* effectv.1, README, NEWS:
+	  - Added notes for 0.3.9.
+
+2003/12/21	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* main.c:
+	  - Now you can set an effect name what EffecTV starts up from.
+	  - registEffect -> registerEffect.
+	  - Note that the old EffecTV allowed to omit '-' of command line options.
+	    Now it is not allowed anymore.
+	* effects/simura.c:
+	  - Does not reset color and mirror in start().
+
+2003/12/20	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/edge.c:
+	  - Fixed a bug. It is a great surprising that the old code works well.
+
+2003/12/19	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/simura.c:
+	  - Default mirroring mode changed.
+	* image.c:
+	  - Two utility functions "image_y_{over,under}()" have been added.
+	* effects/burn.c:
+	  - Added a new mode.
+	* effects/puzzle.c:
+	  - Added auto solver.
+	  - Made block sliding smooth.
+	* effects/spark.c:
+	  - Added 2 new modes using image_y_over and image_y_under.
+
+2003/12/17	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/{burn,fire,mosaic,noise,ripple,spart}.c:
+	  - Now they grab a background image in draw(), not in start().
+
+2003/12/15	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* Updated Copyrights years to 2003.
+	* EffecTV.h, effect.h, effects/Makefile:
+	  - Now all lines of effect.h moved to EffecTV.h again.
+	  - All effects includes EffecTV.h, not effect.h.
+	* EffecTV.h, effect/effects.h, main.c:
+	  - "effectRegistFunc" has been renamed to "effectRegisterFunc". (haha..)
+	* main.c:
+	  - Removed SDL_GetModState() from PollEvent loop. Now it looks up
+	    SDL_Event.key.keysym.mod. (Update in 7/7 was not done in this branch?)
+	* Branch "simplified" has been merged to the main trunk.
+
+2003/12/13	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/{diff.c,spiral.c}:
+	  - Added memset() calls to initialize buffers. (Thanks Niels)
+	* effects/Deinterlace.c:
+	  - Bug fix to avoid boudnary violation. (Thanks Niels)
+	* Code cleaning up.
+	* EffecTV.h, config.mk:
+	  - DEFAULT_VIDEO_DEVICE is now set from config.mk.
+
+2003/12/12	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* README, README.vloopback, README.vloopback83:
+	  - Removed patches for vloopback. vloopback-0.91 includes those hacks.
+	* EffecTV.h:
+	  - Changed version to 0.3.9.
+	* main.c, video.c:
+	  - Now palette_init() is called from main, not video.
+	* main.c, palette.c, image.c, utils.c:
+	  - Added *_end() to free allocated memory. This is useful for memory leak
+	    detection.
+
+2003/12/9	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* All effects now are passed RGB32 *src and *dest, therefore,
+	  {video,screen}_getaddress() were removed from draw().
+
+2003/12/03	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* *.h: "void" were supplied to functions have no argument.
+
+2003/11/30	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* All effects now include effect.h instead of EffecTV.h.
+	* New modes have been added to FireTV.
+
+2003/11/29	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* Simplifying continues...
+	  - Made main loop to call image_stretch_buffer_clear() before start().
+
+2003/11/28	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* A new branch "simplified" has been created.
+	  - The most of simplifying process are derived from BSB (done by Buddy).
+	  - Now all methods of effects become static, and are given simple name.
+	    e.g. start() instead of dumbStart().
+	  - video_grabstart() and video_grabstop() have been moved to main loop
+	    from start() and stop().
+	  - video_syncframe() and video_grabframe() have been moved to main loop
+	    from draw().
+	  - "if(screen_mustlock()) ..." has been capsulated in screen_lock().
+	  - Now screen_clear(0) is called before calling start().
+	* Simplifying continues...
+	  - screen_lock() and screen_unlock almost have been removed from effects.
+
+2003/10/16      Sam Mertens             <smertens@users.sourceforge.net>
+	* config.mk: Changed deprecated -mpentiumpro to -march=pentiumpro
+	  (Tested with both gcc 2.95, gcc 3.3)
+
+2003/07/07	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* main.c:
+	  - Removed SDL_GetModState() from PollEvent loop. Now it looks up
+	    SDL_Event.key.keysym.mod.
+
+2003/07/01	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* vloopback.c: Now uses snprintf() and strncpy() for the safe string
+	  operation.
+
+2003/02/17	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* tools/Makefile, v4lutils/Makefile: Now includes config.mk. This is taken
+	  from a patch for Solaris by Bt8x8 driver for Solraris team:
+	  http://bt848x.sourceforge.net/
+
+2002/10/05	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* EffecTV.h: The default video device file has been changed to
+	  "/dev/video0".
+	* effectv.1, docs.japanese/effectv.1: Follows above change.
+	* NEWS: Added null line between each list items.
+
+	* EffecTV-0.3.8 has been released.
+
+2002/10/02	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* README.ps2, docs.japanese/README.ps2: Added some notes.
+
+2002/10/01	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* NEWS: New file to announce an overview of changes from previous version.
+
+2002/09/29	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* README.ps2, docs.japanese/README.ps2 : Updated patch. Changed the based
+	  version to 1.63.
+
+2002/09/28	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* README, docs.japanese/README: Added a sentence about incompletion of
+	  vloopback support.
+
+2002/09/27	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* Changed version to 0.3.8.
+	* CREWS: Added Jun IIO as a director.
+	* main.c, effects/Makefile: Disabled HintDePintTV.
+	* Changed copyright notation. (just for my personal reason)
+	  copyrighted year have been extended to 2002.(is it right way?)
+	* README, effectv.1, docs.japanese/{README,effectv.1}:
+	  Added BrokenTV and WarholTV.
+
+2002/09/04	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* v4lutils/v4lutils.c: Was changed to output more user-friendly error
+	  message.
+	* README, docs.japanese/README: Added an example for FFmpeg. Supported
+	  palettes of output images are noted.
+
+2002/08/29	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/warhol.c: New effect WarholTV was added.
+
+2002/08/19	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* palette.c: Added RGB32toYUV422P and RGB32toYUV420P converters.
+
+2002/08/19	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* docs.japanese/README.{1ban,vloopback,vloopback83}: Follows english docs.
+	* main.c, effects/{scroll.c,hintdepint.c}: New effects BrokenTV and
+	  HintDePint.c were added.
+
+2002/08/18	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* config.mk: Changed default vloopback version to 0.90.
+	* README.vloopback83: Attached new patch for vloopback-0.83.
+	* README.vloopback90: Was renamed to README.vloopback.
+	* README: Now vloopback-0.90 is recommended.
+
+	* README.vloopback: Attached new patch for vloopback-0.90. New patch
+	  includes VIDIOCSINVAILD ioctl handler.
+	* vloopback.c: VIDIOCSINVAILD ioctl support was added.
+
+2002/08/09	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* README.ps2: A patch for ov511-1.62 was added.
+	* effects/lens.c: Now lens[] is allocated dynamically.
+	  Some optimizations.
+	  An out of range error in clipmag() was removed.
+
+	* EffecTV-0.3.7 has been released.
+
+2002/08/08	Sam Mertens		<smertens@users.sf.net>
+	* effects/diff.c: Removed extraneous 'tol: xx,xx,xx' output
+	messages.
+	
+2002/08/08	Sam Mertens		<smertens@users.sf.net>
+	* effects/lens.c: Added Ed Tannenbaum's patch to toggle between
+	interactive and non-interactive modes
+	
+2002/08/05	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* Changed version to 0.3.7.
+	* README, docs.japanese/README: Changed the URL of NASM.
+
+2002/08/03	Sam Mertens		<smertens@users.sf.net>
+	* effects/lens.c: Removed question marks from porting credit
+	
+2002/08/03	Sam Mertens		<smertens@users.sf.net>	
+	* effects/holo.c: fixed wrong parameter order in memcpy() calls
+	(my own fault)
+	
+2002/08/03	FUKUCHI Kentaro		<fukuchi@users.sourceforge.net>
+	* effects/{1d,puzzle,aging,dumb,lens,predator,quark,spark,spiral}.c:
+	  Replaced from bcopy() to memcpy().
+
+2002/08/03	Sam Mertens		<smertens@users.sf.net>
+	* effects/lens.c: Included Ed Tannenbaum's port of LensTV from BSB
+	* effects/diff.c: Ported diff.c from BSB
+	* effects/transform.c: removed unused variables (compiler warning)
+
+2002/07/27	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* frequencies.c: Added Australian Optus cable TV channels
+	  (imported from xawtv-3.76).
+
+2002/07/06	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* effects/rev.c: A out of range memory error has been fixed.
+
+2002/07/03	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* effects/aging.c: A out of range memory error has been fixed.
+
+2002/06/23	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* REAMDE.vloopback90: Removed a meaningless line.
+
+2002/06/18	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* video.c: Typo fixes.
+
+2002/06/16	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* effects/nervous.c: Added another nervous mode. An event handler was
+	  added.
+
+2002/06/03	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* effects/shagadelic.c: Added event handler. Now each RGB plane can be
+	  masked by pressing 1,2,3 key. Some speed-up-hack were added.
+
+2002/05/05	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* README.ps2, docs.japanese/README.ps2 : New patch for ov511-1.60.
+
+2002/04/18	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* Removed NemoTV.
+	* main.c, effects/rds.c: Added RandomDotStereoTV.
+	* changed version to 0.3.6.
+	* effects/{rndm.c,rev.c}: Changed the default value of grabtime to 1.
+
+	* EffecTV-0.3.6 has been released.
+
+2002/04/03	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* README.ps2, docs.japanese/README.ps2 : New patch for ov511-1.59.
+
+2002/04/01	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* effects/nemo.c: Fixed the title. Added conditional macro to disable
+	  this effect if the target architecture is set to ps2-linux.
+	* docs.japanese/README.ps2: Added URL of SDL package.
+
+	* EffecTV-0.3.5 has been released.
+
+2002/03/31	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* README.vloopback90: Revised the patch included.
+	* Makefile, config.mk: New macro variable LIBS.extra was added for non x86
+	  linux (ps2-linux, indeed).
+
+2002/03/30	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* effects/nemo.c: Code cleaning up. planetable now allocated at run-time.
+	* README, effectv.1, EffecTV.h, etc. : changed version to 0.3.5.
+	* effects/rev.c: Added function prototype of vasulka().
+
+2002/03/29	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* main.c, effects/{nemo.c,Makefile,effects.h}: Added NemoTV.
+
+2002/03/28	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* debian/: Removed all of debian related files.
+	* README, TODO: libc6-2.2.5 problem had been fixed by glibc-team.
+
+2002/03/25	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* README.ps2, docs.japanese/README.ps2: Changed recommended version of
+	  ov511 from 1.43 to 1.58. New patch was attached.
+
+2002/03/17	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* main.c: Minor changes to compile with gcc 3.0.
+	* frequencies.[ch]: Irish frequency table fix. (imported from xawtv-3.72)
+
+2002/03/14	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* effects/transform.c: Fixed memory leak bug.
+
+2002/03/13	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* video.c: Now video.c stores parameters of v4l_picture.
+
+2002/03/12	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* effects/cycle.c: Removed meaningless video_getaddress().
+
+2002/03/10	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* main.c: alt_pressed was deprecated. Now it uses SDL_GetModState().
+	* main.c, video.[ch]: Added quite ugly hack to tune video image.
+
+2002/03/08	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* screen.h: Fixed wrong function declaration.
+
+2002/03/06	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* Playstation2 -> PlayStation2
+
+2002/02/28	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* effects/{rev.c,rndm.c}: Added rndmTV and revTV.
+
+2002/02/15	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* docs.japanese/{README.ps2,README.tools,FAQ}: Typo fixes.
+	* CREWS: Edo->Ed. Sorry Ed!
+	* TODO: Removed "Software deinterlacing", because Chris had done it.
+
+2002/02/14	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* README, docs.japanese/README: Added notice of vloopback crash.
+
+	* EffecTV-0.3.4 is released.
+
+2002/02/12	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* main.c: Modified the indent of usage messages.
+
+2002/02/09	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* README, effectv.1, EffecTV.h : changed version to 0.3.4.
+	* docs.japanese/{README, effectv.1}: Added nervousTV, changed version to
+	  0.3.4.
+	* frequencies.[ch], main.c, effectv.1, docs.japanese/effectv.1:
+	  Added canada-cable. (imported from xawtv-3.69)
+	* effects/nervous.c: Now it uses memcpy() to copy frames.
+
+2002/02/08	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* effects/nervous.c: New effect "nervousTV" by Ed Tannenbaum.
+	* README, effectv.1, main.c, effects/Makefile, effects/effects.h:
+	  Added nervousTV.
+	* CREWS: Added Edo Tannenbaum.
+
+2002/02/06	FUKUCHI	Kentarou	<fukuchi@users.sf.net>
+	* effects/dot.c: New feature for St. Valentine's Day:).
+
+2002/02/01	FUKUCHI	Kentarou	<fukuchi@users.sf.net>
+	* effectv.1: Added DeinterlaceTV.
+
+2002/01/31	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* effects/shagadelic.c: Blue ripple now shrinks.
+	* effects/{baltan.c,streak.c,quark.c}: Memory leak error fixes.
+	* effects/Deinterlace.c: Now it handles stretching buffer correctly.
+	* effects/blurzoom.c: Added 3 new mode.
+
+2002/01/28	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* README, docs.japanese/README: Added DeinterlaceTV.
+	* CREWS: Added Casandro.
+
+2002/01/25	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* palette.c: Horizontal flipping of YUV422 palette converter was corrupt.
+	* README, README.ps2: Typo fixes.
+
+2001/11/27	FUKUCHI	Kentarou	<fukuchi@users.sf.net>
+	* vloopback.c: Typo fixes, error messages were added.
+
+2001/10/31	FUKUCHI	Kentarou	<fukuchi@users.sf.net>
+	* debian/rules: Target directory for effectv.1 was changed.
+
+	* EffecTV-0.3.3 is released.
+
+2001/10/30	FUKUCHI	Kentarou	<fukuchi@users.sf.net>
+	* doc.japanese/README.ps2: Typo fix.
+
+2001/10/28	FUKUCHI	Kentarou	<fukuchi@users.sf.net>
+	* Makefile, config.mk: Added new macro variable "CONFIG.arch".
+	* effects/{shagadelic.c,warp.c,spiral.c}: Added some extra code for PS2.
+	* README.ps2, doc.japanese/README.ps2: Changed 'TODO' section.
+
+2001/10/22	FUKUCHI	Kentarou	<fukuchi@users.sf.net>
+	* README.ps2, doc.japanese/README.ps2: Changed section name.
+	* debian/*: Fixed copyright description, rules and dir.
+	* docs.japanese/FAQ: Added translated doc.
+	* FAQ: Typo fixed and added new information.
+
+2001/10/20	FUKUCHI	Kentarou	<fukuchi@users.sf.net>
+	* included PS2 patch.
+	* README.ps2, doc.japanese/README.ps2: Added documents for PS2.
+
+2001/10/14	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* README, doc.japanese/README: Added a description of vloopback.
+
+2001/10/13	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* image.c: Changed the scale of increments from 8bit to 16bit in
+	  image_stretch().
+
+2001/10/12	FUKUCHI	Kentarou	<fukuchi@users.sf.net>
+	* effects/dizzy.c: DizzyTV is renamed to VertigoTV, after the masterpiece
+	  of Hitchcock.
+
+2001/10/10	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* effects/dizzy.c: Bugfixes and some parameters now can be controlable.
+	* doc.japanese/{README,effectv.1}: Catched up 0.3.3.
+	* vloopback.c: Typo fixed.
+
+2001/10/09	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* effects/dizzy.c: Bugfixes.
+	* palette.[ch]: Added new function 'palettex_getpalette()'.
+	* main.c: Added new option "-palette".
+	* video.c: Now video_init() requires a palette number. If 0, it uses
+	  RGB32.
+	* README, effectv.1 : Added more description of options.
+	* Changed version to 0.3.3.
+
+
+2001/10/08	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* effects/dizzy.c: Added an new effect DizzyTV.
+	* config.mk: Changed the default to use NASM.
+
+2001/10/02	FUKUCHI	Kentarou	<fukuchi@users.sf.net>
+	* effects/blurzoom.c: Added a replacement code of blurzoomcore.nas.
+	* config.mk: Added a common configuration file for Makefiles.
+	* Makefile, effects/Makefile: Changed to refer config.mk.
+	* README: Fixed 'Compiling & installing' section.
+	* debian/*: Debianizing trial. These files may be separated from main
+	  trunc?
+
+2001/09/27	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* README, effectv.1: Typo fixes.
+	* docs.japanese/*: Added some Japanese documents.
+
+	* EffecTV-0.3.2 is released.
+
+2001/09/25	Sam Mertens		<smertens@users.sf.net>
+	* tools/Makefile given 'all-recursive', 'all-am' targets
+	  so global make works again
+
+2001/09/21	Buddy Smith	<nullset@users.sf.net>
+	* tools/ directory added to $SUBDIRS in Makefile
+
+2001/09/21	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* effects/ripple.c: Rain drop function was enhanced. Some debug code
+	  was eliminated.
+
+2001/09/20	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* effects/ripple.c: More beautification.
+	* effects/ripple.c: Saturation check bug was fixed.
+
+2001/09/19	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* frequencies.c: Fixed Italy frequency table, Added Argentina frequency
+	  table. (imported from xawtv-3.62)
+	* Changed version to 0.3.2.
+
+2001/09/18	Sam Mertens		<smertens@users.sf.net>
+	* effects/dice.c: Imported DiceTV from BSB.
+
+2001/09/18	FUKUCHI	Kentarou	<fukuchi@users.sf.net>
+	* effects/ripple.c: Bugfixes. Added raindrop mode.
+
+2001/09/17	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* effects/warp.c: Copied from BSB. (Non maintainer update)
+
+2001/09/16	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* effects/ripple.c: Added RippleTV(experimental).
+
+2001/09/14	Buddy Smith 		<nullset@dookie.net>
+	* Added cycle.c, added
+	  RGB(),RED(),GREEN(),BLUE(),INTENSITY() defines to utils.h
+
+2001/09/09	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* palette.c: YUV422P,YUV411P,YUV410P format support were added.
+	* effects/spark.c: Visual of sparks was enhanced.
+
+2001/09/08	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* tools/palettecheck.c: bug fixes. Thanks to Frederic Logier.
+
+2001/09/04	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* tools/{Makefile,README,palettecheck.c}: Added a capability checking
+	  tool.
+	* video.c, palette.c: Added some error messages.
+	* FAQ: Added Q9.
+
+2001/09/03	FUKUCHI Kentarou	<fukuchi@users.sf.net>
+	* palette.c: YUV420P format support was added.
+
+2001/08/29	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* burn.c: a bug fix of the little optimization.
+	* README.vloopback: new patch was added.
+	* README, ChangeLog: typo fixes.
+
+2001/08/20	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* burn.c: A little optimization.
+
+2001/07/18	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* EffecTV.h: Added definitions of SDL_DISABLE and SDL_ENABLE for
+	  SDL-1.1.x (those macro values are defined since SDL-1.2.0).
+	  Thanks to Kazuyuki Shudo.
+	* screen.c: Now it uses SDL_DISABLE and SDL_ENABLE instead of 0 and 1.
+	* effectv.1: typo fixed.
+
+2001/07/7	FUKUCHI	Kentarou	<fukuchi@is.titech.ac.jp>
+	* vloopback.c, Makefile: vloopback-0.90 support was added.
+	  but vloopback-0.90 seems to be unstable.
+
+2001/06/24	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* video.c: Changed the order to stop frame grabbing. Now it syncs
+	  current grabbing frame, then stops another frame. IBM usb cam now
+	  works fine.
+
+2001/06/18	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* video.c: Changed the logic of detecting supported pixel format.
+	  Restricted error message displaying while this sequence.
+	* Changed version to 0.3.1.
+
+2001/06/16	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* Some utility functions(utils.[ch], yuv.c, image.c buffer.o) were
+	  moved from effects/ to the top directory.
+	* palette.c: convert_YUV422toRGB32() and convert_RGB32toYUV422() were
+	  added.
+
+2001/06/11	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* palette.c: Bug fixes of RGB conversion. RGB32toRGB565/555 did shift
+	  red value of each pixel too right.
+	* tools/AddEffect.pl: Mentioned in Coding-HOWTO, but it was not inclued.
+
+2001/06/10	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* effectv.1: Added summaries of new effects.
+	* Coding-HOWTO: from BSB.
+
+2001/06/09	Sam Mertens		<smertens@effectv.sourceforge.net>
+	* Added my ad hoc vloopback.c patch to README.vloopback.  No
+	guarantees, but it works for me.
+	
+2001/06/09	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* Changed version to 0.3.0.
+
+2001/06/07	FUKUCHI	Kentarou	<fukuchi@is.titech.ac.jp>
+	* README, effectv.1: added short description for key binding.
+	* README, FAQ: line breaks optimization.
+
+2001/05/30	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* REAME, README.vloopback: modified informations.
+
+2001/05/27	FUKUCHI	Kentarou	<fukuchi@is.titech.ac.jp>
+	* Makefile: added a rule for install.
+	* effects/holo.c: parameters tuning.
+
+2001/05/26	FUKUCHI	Kentarou	<fukuchi@is.titech.ac.jp>
+	* main.c,frequencies.c,README,effectv.1: newest frequencie table from
+	  xawtv-3.48. (freq. table for south africa was added)
+	* main.c: debug flag was set to 0.
+
+2001/05/24	Sam Mertens		<smertens@effectv.sourceforge.net>
+	* Edited text files FAQ, README, and README.vloopback for syntax
+	* Carried over a minor spiral.c fix from EffecTV-BSB.  Also,
+	removed some (not all) of the more extraneous portions of the
+	header comments.
+	
+2001/05/20	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* Imported from BackStage Branch;
+	  * New internal architecture - free capturing size and scaling.
+	  * New option "-size" "-geometry" "-scale" were added. "-double" and
+	    "-hireso" were removed.
+	  * Various pixel format support.
+	  * Autoplay mode (EXPERIMENTAL)
+	  * Video loop back support was enhanced (EXPERIMENTAL). Now EffecTV can
+	    be chained!
+	  * Horizontal flipping (TAB key)
+	  * ALT+Enter for fullscreen mode toggle.
+	  * Many bugfixes.
+	* Okay, NEW EFFECT!
+	  NoiseTV, AgingTV, TransFromTV, LifeTV, SparkTV, WarpTV, HolographicTV.
+	  (StrobeTV and ThreadTV in BackStageBranch coming soon!)
+	* Changed version to 0.2.99.
+
+2001/03/27	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* Many feature enhancements from BackStage Branch;
+	  * New effects: EdgeTV and ShagadelicTV.
+	  * Video loop back device support.
+	  * All effects are changed to use 320x240xRGB32 mode. Many USB cam now
+	    work fine.
+	  * New option "-hireso" was added.
+	* Changed version to 0.2.0.
+
+2001/03/19	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* Changed version to 0.1.6. Many feature enhancement from BackStage Branch;
+	  * Merged TV tuning support from Matthias Kleinmann
+	  * New Effect: SpiralTV (Sam Mertens)
+	  * BaltanTV and StreakTV exchanged their names.
+	  * EffecTV.h: added new macro variables SCREEN_AREA and PIXEL_SIZE
+		(suggested from Sam Mertens)
+
+2001/03/14	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* effects/1d.c: did not handle state in Start() and Stop().
+
+2001/03/02	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* Changed version to 0.1.5.
+
+2001/03/01	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* effects/blurzoom.c: cleaned the code up.
+
+2001/02/27	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* effects/simura.c: minor bugfixes.
+
+2001/02/25	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* New effect: SimuraTV
+
+2001/02/23	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* global variable "videoinfo" is renamed to "screeninfo" to avoid
+	  confusion.
+
+2001/02/21	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* Some global variables for screen setting are move to screen.c
+
+2001/02/20	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* REAME is renamed to README. (ashamed)
+	* New flags is added: fullscreen, doublebuf, hwsurface.
+	  Especially, doublebuf is important for effects coders.
+	* New function screen_clear() is added.
+	* effects/1d.c, dot.c, fire.c, predator.c;
+	  Bugs on doublebuffering mode have been fixed.
+	* Changed version to 0.1.4
+	* Fixed the bug that wrong message "Fullscreen mode is not supported."
+	  had been shown even when fullscreen option was not set.
+
+2001/02/20	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* array phasetable[] is eliminated from quark.c. That was completely
+	  meaningless.
+
+2001/02/18	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* New function videox_getnorm() in video.c
+	* New options "-norm" is added.
+
+2001/02/18	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* Changed version to 0.1.3
+	* Changed default norm to NTSC
+
+2001/02/18	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* New effect PredatorTV
+	* New YUV utility modules.
+
+2001/02/17	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* effects/puzzle.c
+	  Shuffling routine is revised.
+
+2001/02/16	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* New effect PuzzleTV
+
+2001/02/16	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* SDL_WM_SetCaption() is replaced by screen_setcaption() in main.c
+	  screen_setcaption() calls SDL_WM_SetCaption() only when window manager
+	  feature is available.
+
+2001/02/15	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* Double scaled BurnTV now uses addition with saturation.
+	* MosaicTV is added.
+	* changed version to 0.1.2
+
+2001/02/15	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* Fixed the bugs in usage and README.
+
+2001/02/14	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* blurzoom.c didn't handle variable stat.
+
+2001/02/14	FUKUCHI Kentarou	<fukuchi@is.titech.ac.jp>
+	* Now effects uses a shared buffer for temporary frame buffer.
+	  But the effects uses large amount buffer(QuarkTV, BaltanTV, StreakTV)
+	  alloctes buffers by themselves.
+	* Return values of xxxStart() and xxxDraw() are handled. When they
+	  failed, drawErrorPattern() is called.(currently it only fill the screen
+	  in blank)

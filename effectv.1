@@ -1,0 +1,261 @@
+.TH EFFECTV 1 "Feb. 14, 2006" "effectv"
+.SH NAME
+effectv \- real-time video effector
+.SH SYNOPSIS
+.B "effectv"
+[options...]
+[effect name]
+
+.SH DESCRIPTION
+EffecTV is a real-time video effector. You can enjoy movies, TV programs
+and any other video stream through the many amazing effects. Run EffecTV
+and push Up/Down arrow key to change the effect.
+
+EffecTV accepts options and an effect name. In most cases you need not to set
+any options and name. You may specify a device file name and a channel number
+to see the input source you want.
+
+EffecTV can be launched from any effect you want. Put an effect name after
+the command name ("effectv") or option(s). It's case-insensitive, and a
+trailing "TV" can be omitted.
+
+.SH OPTIONS
+.TP
+.I \-help
+Show usage (help) information.
+.TP
+.I \-device FILE
+Use device FILE for video4linux (default is /dev/video0).
+.TP
+.I \-channel NUMBER
+Channel number of video source (default is 0).
+.TP
+.I \-norm NORM
+Set video norm (default is ntsc). One of
+ntsc, pal, secam, pal-nc, pal-m, pal-n, ntsc-jp.
+.TP
+.I \-freqtab FREQTAB
+Set frequency table. One of
+us-bcast, us-cable, us-cable-hrc, japan-bcast, japan-cable,
+europe-west, europe-east, italy, newzealand, australia, ireland,
+france, china-bcast, southafrica, argentina, canada-cable, australia-optus.
+.TP
+.I \-fullscreen
+Enable fullscreen mode.
+.TP
+.I \-hardware
+Use direct video memory(if possible).
+.TP
+.I \-doublebuffer
+Enable double buffering mode (if possible).
+.TP
+.I \-fps
+Show frames/sec.
+.TP
+.I \-size WxH
+Set the size of capturing image to WxH pixels. (default 320x240)
+.TP
+.I \-geometry WxH
+Set the size of screen to WxH pixels.
+.TP
+.I \-scale NUMBER
+Set the scaling. When the capturing size is set, the screen size is scaled by
+NUMBER.
+.TP
+.I \-autoplay FRAMES
+Changes effects automatically every FRAMES.
+.TP
+.I \-palette {rgb24,rgb565,rgb555,yuv422,yuv422p,yuv420p,yuv411p,yuv410p,grey}
+Set the palette of capturing device. It is detected automatically by default.
+.TP
+.I \-vloopback FILE
+Use device FILE for output of vloopback device.
+
+.SH KEYS
+.TP
+.I Up/Down
+Change effect.
+.TP
+.I Right/Left
+Change TV channel.
+.TP
+.I Space
+Capture a background image(for FireTV, BurningTV, etc.).
+Change mode(for SpiralTV, TransFormTV).
+.TP
+.I ALT+ENTER
+Fullscreen mode(toggle).
+.TP
+.I TAB
+Flip images horizontally.
+.TP
+.I Escape
+Quit
+.TP
+.I ALT+0-9
+Change video input channel (0-9).
+.TP
+.I F1/F2
+Increase/decrease brightness of video input.
+.TP
+.I F3/F4
+Increase/decrease hue.
+.TP
+.I F5/F6
+Increase/decrease color balance.
+.TP
+.I F7/F8
+Increase/decrease contrast.
+.TP
+.I F12
+Show this key usage.
+.PP
+More details for each effects are described in documents package.
+You should download effectv-docs.tar.gz found at EffecTV web page.
+
+.SH EFFECTS
+.TP
+.I QuarkTV
+Dissolves moving objects.
+.TP
+.I FireTV
+Clips incoming objects and burns it.
+.TP
+.I BurningTV
+Burns incoming objects.
+.TP
+.I RadioacTV
+Brightens moving objects and blurs it.
+.TP
+.I StreakTV
+Makes 8 afterimages.
+.TP
+.I BaltanTV
+Makes afterimages longer.
+.TP
+.I 1DTV
+Grabs a horizontal line from video every 1/30 sec.
+.TP
+.I DotTV
+Converts the picture into a set of dots.
+.TP
+.I MosaicTV
+Censors incoming objects.
+.TP
+.I PuzzleTV
+Scrambles the picture.
+.TP
+.I PredatorTV
+Makes incoming objects invisible visibly.
+.TP
+.I SpiralTV
+Spiraling effect.
+.TP
+.I SimuraTV
+Color distortion and image mirroring.
+.TP
+.I EdgeTV
+Detects edge and display it like good old computer way.
+.TP
+.I ShagadelicTV
+Go back to swinging '60s!
+.TP
+.I NoiseTV
+Makes incoming objects noisy.
+.TP
+.I AgingTV
+Film-aging effect.
+.TP
+.I LifeTV
+Conway's life game with video input interaction.
+.TP
+.I TransFormTV
+Performs positional translations on images.
+.TP
+.I SparkTV
+Spark effect.
+.TP
+.I warpTV
+Goo'ing effect.
+.TP
+.I HolographicTV
+Holographic vision seen in Star Wars.
+.TP
+.I cycleTV
+Color cycling effect.
+.TP
+.I RippleTV
+Ripple mark effect.
+.TP
+.I DiceTV
+A 'dicing' effect.
+.TP
+.I VertigoTV
+Alpha blending with zoomed and rotated images.
+.TP
+.I DeinterlaceTV
+Deinterlacing video images.
+.TP
+.I nervousTV
+Realtime frame shuffling effect.
+.TP
+.I RndmTV
+Gives you a noisy picture in color or B/W.
+.TP
+.I RevTV
+Waveform monitor effect.
+.TP
+.I RandomDotStereoTV
+Makes random dot stereo stream from video input.
+.TP
+.I LensTV
+Old school demo lens effect.
+.TP
+.I DiffTV
+Hilights interframe differences.
+.TP
+.I BrokenTV
+Simulates broken TV.
+.TP
+.I WarholTV
+Hommage to Andy Warhol.
+.TP
+.I MatrixTV
+A Matrix like effect.
+.TP
+.I PUPTV
+Comes from "Partial UPdate", certain part of image is updated at a frame.
+.TP
+.I ChameleonTV
+Still object will be disappearing.
+.TP
+.I OpTV
+Optical art meets real-time video effect.
+.TP
+.I NervousHalf
+A half of the screen delays or be nervous.
+.TP
+.I SloFastTV
+Non-linear time TV.
+.TP
+.I DisplayWall
+Full of small displays with a distorted perspective view.
+.TP
+.I BlueScreenTV
+Blue sceen effect: changes scene background.
+.TP
+.I ColourfulStreak
+Streak effect with color.
+.TP
+.I TimeDistortion
+Scratch the surface and playback old images.
+.TP
+.I EdgeBlurTV
+Extract edge, and make blur.
+
+.SH AUTHOR
+The core of EffecTV was developed by FUKUCHI Kentaro <fukuchi@users.sourceforge.net>.
+See the file CREWS for full list of developers.
+
+.SH SEE ALSO
+v4l-conf(1)
