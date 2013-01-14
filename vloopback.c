@@ -17,7 +17,7 @@
 #include <sys/wait.h>
 #include <sys/mman.h>
 #include <signal.h>
-#include <linux/videodev.h>
+#include <libv4l1-videodev.h>
 #include <v4lutils.h>
 #include <pthread.h>
 
@@ -413,7 +413,7 @@ static void *signal_loop(void *arg)
 				 * a client. */
 				memset(ioctlbuf+sizeof(unsigned long int), 0xff, MAXIOCTL-sizeof(unsigned long int));
 				fprintf(stderr, "vloopback: ioctl %lx unsuccessfully handled.\n", cmd);
-				ioctl(outputfd, VIDIOCSINVALID);
+				//ioctl(outputfd, VIDIOCSINVALID);
 			}
 			if(ioctl(outputfd, cmd, ioctlbuf+sizeof(unsigned long int))) {
 				fprintf(stderr, "vloopback: ioctl %lx unsuccessfull.\n", cmd);

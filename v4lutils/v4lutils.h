@@ -25,7 +25,7 @@
 #define __V4LUTILS_H__
 
 #include <sys/types.h>
-#include <linux/videodev.h>
+#include <libv4l1-videodev.h>
 #include <pthread.h>
 
 /*
@@ -45,11 +45,11 @@ struct _v4ldevice
 	struct video_picture picture;
 	struct video_clip clip;
 	struct video_window window;
-	struct video_capture capture;
+	//struct video_capture capture;
 	struct video_buffer buffer;
 	struct video_mmap mmap;
 	struct video_mbuf mbuf;
-	struct video_unit unit;
+	//struct video_unit unit;
 	unsigned char *map;
 	pthread_mutex_t mutex;
 	int frame;

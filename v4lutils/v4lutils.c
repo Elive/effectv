@@ -28,7 +28,7 @@
 #include <sys/mman.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include <linux/videodev.h>
+#include <libv4l1-videodev.h>
 #include <pthread.h>
 #include <errno.h>
 #include "v4lutils.h"
@@ -144,10 +144,10 @@ int v4lsetdefaultnorm(v4ldevice *vd, int norm)
  */
 int v4lgetsubcapture(v4ldevice *vd)
 {
-	if(ioctl(vd->fd, VIDIOCGCAPTURE, &(vd->capture)) < 0) {
+	/*if(ioctl(vd->fd, VIDIOCGCAPTURE, &(vd->capture)) < 0) {
 		v4lperror("v4lgetsubcapture:VIDIOCGCAPTURE");
 		return -1;
-	}
+	}*/
 	return 0;
 }
 
@@ -163,7 +163,7 @@ int v4lgetsubcapture(v4ldevice *vd)
  */
 int v4lsetsubcapture(v4ldevice *vd, int x, int y, int width, int height, int decimation, int flags)
 {
-	vd->capture.x = x;
+	/*vd->capture.x = x;
 	vd->capture.y = y;
 	vd->capture.width = width;
 	vd->capture.height = height;
@@ -172,7 +172,7 @@ int v4lsetsubcapture(v4ldevice *vd, int x, int y, int width, int height, int dec
 	if(ioctl(vd->fd, VIDIOCGCAPTURE, &(vd->capture)) < 0) {
 		v4lperror("v4lsetsubcapture:VIDIOCSCAPTURE");
 		return -1;
-	}
+	}*/
 	return 0;
 }
 
