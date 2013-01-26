@@ -305,7 +305,7 @@ static void rasterPup(RGB32 *src)
 	static int phase = 0;
 	static int step = 16;
 	int x, y;
-	unsigned int offset;
+	//unsigned int offset;
 	RGB32 *dest;
 
 	if(paramInc != 0) {
@@ -315,7 +315,7 @@ static void rasterPup(RGB32 *src)
 		phase %= step;
 	}
 
-	offset = 0;
+	//offset = 0;
 
 	dest = buffer;
 	for(y=0; y<video_height; y++) {
