@@ -61,7 +61,7 @@ USE_NASM = no
 USE_MMX = no
 USE_VLOOPBACK = no
 CONFIG += -DRGB_BGR_CONVERSION
-LIBS.extra = -ldl -L/usr/X11R6/lib -lX11 -lXext
+LIBS.extra = -ldl -L/usr/X11R6/lib -lX11 -lXext -lpthread
 endif
 
 ifeq ($(USE_NASM), yes)
